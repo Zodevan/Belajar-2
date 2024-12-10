@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmsugqjbiysn6"]
+
+[ext_resource type="Script" path="res://script/enemy.gd" id="1_8jvhk"]
+[ext_resource type="Texture2D" uid="uid://c7cn1mlflgeed" path="res://asset/sprites/slime_purple.png" id="2_v7i0s"]
+[ext_resource type="PackedScene" uid="uid://dnigljqfjlcmh" path="res://scenes/killzone.tscn" id="3_setvo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jho4"]
+atlas = ExtResource("2_v7i0s")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kbpa"]
+atlas = ExtResource("2_v7i0s")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq5ho"]
+atlas = ExtResource("2_v7i0s")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuos6"]
+atlas = ExtResource("2_v7i0s")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtthn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jho4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kbpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq5ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuos6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymf7m"]
+size = Vector2(42, 35.75)
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_8jvhk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dtthn")
+autoplay = "default"
+
+[node name="RayCast_right" type="RayCast2D" parent="."]
+position = Vector2(18, 17)
+target_position = Vector2(11, 0)
+
+[node name="RayCast2D_left" type="RayCast2D" parent="."]
+position = Vector2(-19, 17)
+target_position = Vector2(-10, 0)
+
+[node name="killzone" parent="." instance=ExtResource("3_setvo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 19.125)
+shape = SubResource("RectangleShape2D_ymf7m")
+debug_color = Color(0.890933, 0.251462, 0.525757, 0.42)

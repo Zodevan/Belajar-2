@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8g4sn74sf1hm"
+path="res://.godot/imported/Pixel Adventure (1).mp3-d6824e75185dc86955373280da2f8b5a.mp3str"
+
+[deps]
+
+source_file="res://asset/music/Pixel Adventure (1).mp3"
+dest_files=["res://.godot/imported/Pixel Adventure (1).mp3-d6824e75185dc86955373280da2f8b5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
